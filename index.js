@@ -23,6 +23,9 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       break;
 
     case "add":
+      if (!name || !email || !phone) {
+        return console.log("Not correct input! Try again!");
+      }
       const newContact = await contacts.addContact({ name, email, phone });
       console.log(newContact);
       break;
